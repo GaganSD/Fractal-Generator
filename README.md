@@ -6,9 +6,6 @@
 
 The Swedish biologist Aristid Lindenmayer developed L-Systems to model the development of plants. An L-System consists of a start pattern and a set of rewrite rules which are recursively applied to the pattern to produce further increasingly complex patterns.
 
-You can read more about it here: https://en.wikipedia.org/wiki/L-system (definitely worth the read)
-
-
 ## Prerequisites:
 
 To produce the results of my code you need to have Haskell and Turtle Graphics installed in your PC.

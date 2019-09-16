@@ -2,6 +2,14 @@
 
 # L-systems in Turtle Graphics and Haskell
 
+### Designs generated:
+
+![Thirty two](designs-produced-using-haskell/ThirtyTwo-3.png)
+
+![Branch](designs-produced-using-haskell/branch-3.png)
+
+More designs are <a href="https://github.com/GaganSD/Fractal-Generator-with-Haskell/tree/master/designs-produced-using-haskell">here</a>
+
 ### Getting started:
 
 The Swedish biologist Aristid Lindenmayer developed L-Systems to model the development of plants. An L-System consists of a start pattern and a set of rewrite rules which are recursively applied to the pattern to produce further increasingly complex patterns.

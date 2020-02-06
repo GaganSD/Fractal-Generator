@@ -2,7 +2,7 @@
 
 # L-systems in Turtle Graphics and Haskell
 
-### Designs generated:
+### Examples of designs that can be generated:
 
 ![Thirty two](designs-produced-using-haskell/ThirtyTwo-3.png)
 
@@ -24,7 +24,7 @@ Then, you can install turtle graphics by:
 - Once it's updated, you can type:
 -  	``cabal install GLUT``
 - Download the code from Github, load it and you'll can type 
-- ``display ( {design of your choice} {int}).``
+- ``display ( {design of your choice} {depth of the fractal. Integer value}).``
 
 ## Author:
  - Gagan Devagiri

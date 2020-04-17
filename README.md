@@ -10,9 +10,9 @@ A fractal is a pattern built from simple repeated shapes that are reduced in siz
 
 ## Getting Started:
 
-- Install Haskell and ![GLUT](https://hackage.haskell.org/package/GLUT) 
+- Install Haskell and [GLUT](https://hackage.haskell.org/package/GLUT) 
 - Clone the repository and load both the files.
 - ``display $ {design of your choice} {depth of the fractal. Integer value}``
 
 ## License:
-![MIT](https://github.com/GaganSD/Fractal-Generator) © Gagan Devagiri
+[MIT](https://github.com/GaganSD/Fractal-Generator) © Gagan Devagiri

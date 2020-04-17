@@ -1,14 +1,10 @@
 -- LSystem drawing module
 
-
-
-
 module LSystem (
     display,
     Command (..),
     Pen (..), black, white, purple, green, blue,
-    Distance, Angle,
-    triangle, tree
+    Distance, Angle
    )
     where
 
@@ -17,8 +13,8 @@ import Graphics.UI.GLUT hiding (Angle)
 import Data.IORef
 import Data.List
 import Control.Monad( liftM, liftM2, liftM3 )
-import System.Random
-import Test.QuickCheck
+-- import System.Random
+-- import Test.QuickCheck
 
 infixr 5 :#:
 
@@ -208,41 +204,19 @@ polar ang  =  Pnt (cos radians) (sin radians)
   radians  =  ang * 2 * pi / 360
 
 
--- Sample LSystems
-
-triangle :: Int -> Command
-triangle x  =  p :#: f x
-  where
-  f 0      = Go 10
-  f x  = f (x-1) :#: p :#: f (x-1) :#: n :#: f (x-1) :#: n :#: f (x-1) :#: p :#: f (x-1)
-  n        = Turn 90
-  p        = Turn (-90)
-
-tree :: Int -> Command
-tree x  =  f x
-  where
-  f 0      = GrabPen purple :#: Go 10
-  f x  = g (x-1) :#: Branch (n :#: f (x-1))
-                 :#: Branch (p :#: f (x-1))
-                 :#: Branch (g (x-1) :#: f (x-1))
-  g 0      = GrabPen blue :#: Go 10
-  g x  = g (x-1) :#: g (x-1)
-  n        = Turn 45
-  p        = Turn (-45)
 
 
 
--- Generators for QuickCheck
+-- -- Generators for QuickCheck
+-- instance Arbitrary Pen where
+--     arbitrary  =  sized pen
+--         where
+--           pen n  =  elements [black,purple,green,blue,white,Inkless]
 
-instance Arbitrary Pen where
-    arbitrary  =  sized pen
-        where
-          pen n  =  elements [black,purple,green,blue,white,Inkless]
 
-
-instance Arbitrary Command where
-    arbitrary  =  sized cmd
-        where
-          cmd n  |  n <= 0     =  oneof [liftM (Go . abs) arbitrary,
-                                         liftM Turn arbitrary ]
-                 |  otherwise  =  liftM2 (:#:) (cmd (n `div` 2)) (cmd (n `div`2))
+-- instance Arbitrary Command where
+--     arbitrary  =  sized cmd
+--         where
+--           cmd n  |  n <= 0     =  oneof [liftM (Go . abs) arbitrary,
+--                                          liftM Turn arbitrary ]
+--                  |  otherwise  =  liftM2 (:#:) (cmd (n `div` 2)) (cmd (n `div`2))

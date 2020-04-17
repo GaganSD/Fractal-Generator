@@ -3,16 +3,28 @@
 -- Date: 2nd November 2018
 
 
-module Tutorial6 where
+module LSystems where
 import LSystem
-import Test.QuickCheck
 import Data.Char
 
 
---snowflake:
-    -- angle: 60
-    -- start: f--f--f-
-    -- rewrite: f → f+f--f+f
+tree :: Int -> Command
+tree x  =  f x
+  where
+  f 0      = GrabPen purple :#: Go 10
+  f x  = g (x-1) :#: Branch (n :#: f (x-1))
+                 :#: Branch (p :#: f (x-1))
+                 :#: Branch (g (x-1) :#: f (x-1))
+  g 0      = GrabPen white :#: Go 10
+  g x  = g (x-1) :#: g (x-1)
+  n        = Turn 45
+  p        = Turn (-45)
+
+
+-- -- snowflake:
+--       angle: 60
+--       start: f--f--f-
+--       rewrite: f → f+f--f+f
 
 snowflake :: Int -> Command
 snowflake x = f(x) :#: angle :#: angle :#: f(x) :#: angle :#: angle :#: f(x) :#: angle :#: angle
@@ -46,8 +58,8 @@ peanoGosper x = f x
 
       n = Turn 60
       p = Turn(-60)
---------------
 
+--------------
 -- Cross:
     -- angle: 90
     -- start: f-f-f-f
@@ -66,7 +78,6 @@ cross x = f x :#: n :#: f x :#: n :#: f x :#: n :#: f x
       p = Turn(-90)
 
 --------
-
 -- Branch:
     -- angle: 22.5
     -- start: g
@@ -86,12 +97,10 @@ branch x = g x
      p = Turn(-22.5)
 
 ---------
-
 -- 32-segment:
     -- angle: 90
     -- start: F+F+F+F
     -- rewrite: F → -F+F-F-F+F+FF-F+F+FF+F-F-FF+ FF-FF+F+F-FF-F-F+FF-F-F+F+F-F+
-
 
 thirtytwo x = f x :#: n :#: f x :#: n :#: f x :#: n :#: f x
     where
@@ -114,3 +123,12 @@ thirtytwo x = f x :#: n :#: f x :#: n :#: f x :#: n :#: f x
 
       n = Turn 90
       p = Turn (-90)
+
+
+triangle :: Int -> Command
+triangle x  =  p :#: f x
+  where
+  f 0      = Go 10
+  f x  = f (x-1) :#: p :#: f (x-1) :#: n :#: f (x-1) :#: n :#: f (x-1) :#: p :#: f (x-1)
+  n        = Turn 90
+  p        = Turn (-90)

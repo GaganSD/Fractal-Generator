@@ -1,36 +1,18 @@
-﻿
+﻿# Fractal Generator
 
-# L-systems in Turtle Graphics and Haskell
+### Examples of Fractals generated
 
-### Examples of designs that can be generated:
+![L Systems examples](examples/collage.jpg)
 
-![Thirty two](designs-produced-using-haskell/ThirtyTwo-3.png)
+### Background:
 
-![Branch](designs-produced-using-haskell/branch-3.png)
+A fractal is a pattern built from simple repeated shapes that are reduced in size every time they are repeated. Here we used L-Systems techniques to generate fractals in Haskell.
 
-More designs are <a href="https://github.com/GaganSD/Fractal-Generator-with-Haskell/tree/master/designs-produced-using-haskell">here</a>
+## Getting Started:
 
-### Getting started:
-
-The Swedish biologist Aristid Lindenmayer developed L-Systems to model the development of plants. An L-System consists of a start pattern and a set of rewrite rules which are recursively applied to the pattern to produce further increasingly complex patterns.
-
-## Prerequisites:
-
-To produce the results of my code you need to have Haskell and Turtle Graphics installed in your PC.
-- You can install Haskell from here: https://www.haskell.org/downloads
-Then, you can install turtle graphics by:
-	- Opening you terminal and updating the cabal database. You can do that by typing 
-	- ``cabal update``
-- Once it's updated, you can type:
--  	``cabal install GLUT``
-- Download the code from Github, load it and you'll can type 
-- ``display ( {design of your choice} {depth of the fractal. Integer value}).``
-
-## Author:
- - Gagan Devagiri
+- Install Haskell and ![GLUT](https://hackage.haskell.org/package/GLUT) 
+- Clone the repository and load both the files.
+- ``display $ {design of your choice} {depth of the fractal. Integer value}``
 
 ## License:
-- MIT License
-
-
-
+![MIT](https://github.com/GaganSD/Fractal-Generator) © Gagan Devagiri

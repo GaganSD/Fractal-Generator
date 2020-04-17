@@ -11,7 +11,7 @@ A fractal is a pattern built from simple repeated shapes that are reduced in siz
 ## Getting Started:
 
 - Install Haskell and [GLUT](https://hackage.haskell.org/package/GLUT) 
-- Clone the repository and load both the files.
+- Clone the repository and load ``examples.hs`` and ``LSystems.hs``
 - ``display $ {design of your choice} {depth of the fractal. Integer value}``
 
 ## License:
